@@ -34,7 +34,7 @@ function initAccordion() {
 
     if (accordionList.length) {
         accordionList[0].classList.toggle(activeClass); //primeiro dt
-        accordionList[0].nextElementSibling.classList.toggle(activeClass); 
+        accordionList[0].nextElementSibling.classList.toggle(activeClass);
         //irmão/proximo elemento depois do dt
 
 
@@ -87,3 +87,31 @@ function initScrollSuave() {
 }
 
 initScrollSuave();
+
+/*---- Animation Scroll ---- */
+
+function initScrollAnimation() {
+    const sections = document.querySelectorAll('.js-scroll');
+
+    const windowMetade = window.innerHeight * 0.6; /*variavel que pega o tamanho da window (da pagina) e multiplica por 0.6 (ou seja, a variavel fica com o tamanho da metade da tela)*/
+
+    function animaScroll() {
+        sections.forEach((section) => {
+            const sectionTop = section.getBoundingClientRect().top;
+            /*Retorna o tamanho de um elemento e sua posição em relação à viewport, contendo 8 propriedades incluindo top.*/
+            const isSectionVisible = (sectionTop - windowMetade) < 0;
+            //Distancia do topo em relação à viewport menos metade da viewport menor que 0
+            if (isSectionVisible)
+                section.classList.add('ativo');
+            else
+                section.classList.remove('ativo');
+        })
+    }
+
+    animaScroll();
+
+    window.addEventListener('scroll', animaScroll);
+
+}
+
+initScrollAnimation();
