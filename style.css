@@ -217,7 +217,7 @@ body{
     }
 }
 
-/* Ao clicar na imagem irá adicionar a classe ativo, que irá aparecer a descrição de acordo com a imagem */
+/* Ao clicar na imagem irá adicionar a classe ativo, que irá aparecer a descrição de acordo com a imagem*/
 
 .js .animais-descricao section{
     display: none;
@@ -268,4 +268,17 @@ body{
         opacity: 1;
         max-height: 200px;
     }
+}
+
+/*---- Animação Scroll ----*/
+
+.js .js-scroll{
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0);
+    transition: .3s;
+}
+
+.js .js-scroll.ativo{
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
 }
